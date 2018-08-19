@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic-Game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">The Psychic Game</h1>
+
+    <div>
+        <strong>Guess what letter I'm thinking of...
+            <p>...you have 5 guesses.</p>
+        </strong>
+    </div>
+
+    <script type="text/javascript"> //Remember to add ..."src="game.js"> once it works so we can move code to game.js
+
+
+        var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 5;
+        var guessedNumbers = [];
+
+        var gameChoice = numbers[Math.floor(Math.random() * numbers.length)]; //sets gameChoice to random hopefull
+
+       
+
+            //User presses number key -
+            document.onkeyup = function (event) {
+                guessesLeft--;
+            
+
+            var userGuess = [numbers.length];
+
+           if (userGuess === gameChoice) {
+                wins++;
+                document.getElementById(wins).innerHTML = "You guessed correct!";
+                restart
+            }
+            else if (guessesLeft > 5) {
+                losses++;
+            }}
+        
+
+
+        var restart = function () {
+            guessesLeft = 5;
+            guessedNumbers = []
+        }
+
+
+
+        function display() {
+            var wins = document.getElementById("wins");
+            var losses = document.getElementById("losses");
+            //var guessesLeft = document.getElementById("guessLeft");
+            // var numbsLeft = document.getElementById("guessed");
+            // wins.innerHTML = wins;
+            // losses.innerHTML = losses;
+            // guessesLeft.innerHTML = guessesLeft;
+            // numbsLeft.innerHTML = guessedNumbers.join(',');
+        }
+
+
+    </script>
+
+</body>
+
+</html>
