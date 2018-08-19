@@ -30,24 +30,25 @@
 
         var gameChoice = numbers[Math.floor(Math.random() * numbers.length)]; //sets gameChoice to random hopefull
 
-       
 
-            //User presses number key -
-            document.onkeyup = function (event) {
-                guessesLeft--;
-            
 
-            var userGuess = [numbers.length];
+        //User presses number key -
+        document.onkeyup = function (event) {
+            guessesLeft--;
 
-           if (userGuess === gameChoice) {
+
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); //not sure what this is yet but saw it in most examples
+
+            if (userGuess === gameChoice) {
                 wins++;
-                document.getElementById(wins).innerHTML = "You guessed correct!";
+                document.getElementById(wins) = "You guessed correct!";
                 restart
             }
             else if (guessesLeft > 5) {
                 losses++;
-            }}
-        
+            }
+        }
+
 
 
         var restart = function () {
